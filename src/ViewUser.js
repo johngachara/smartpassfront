@@ -51,32 +51,42 @@ export default function ViewUser() {
           <p className="alert alert-success">{activateMessage}</p>
         )}
         {userInfo ? (
-          <div className="card mt-3">
-            <img
-              src={`http://127.0.0.1:8000${userInfo.photo}`}
-              className="card-img-top"
-              alt="Identification Card"
-            />
-            <div className="card-body">
-              <h5 className="card-title">Username: {userData.username}</h5>
-              <p className="card-text">{userData.first_name}</p>
-              <p className="card-text">{userData.last_name}</p>
-              <p className="card-text">{userData.email}</p>
-              <button
-                onClick={activateButton}
-                disabled={activateDisabled}
-                className="btn btn-primary"
-              >
-                Activate
-              </button>
-              <button
-                style={{ marginLeft: 10 }}
-                onClick={deactivateButton}
-                disabled={declineDisabled}
-                className="btn btn-danger"
-              >
-                Decline
-              </button>
+          <div className="container col-xxl-8 px-4 py-5">
+            <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div className="col-10 col-sm-8 col-lg-6">
+                <img
+                  src={`http://127.0.0.1:8000${userInfo.photo}`}
+                  className="d-block mx-lg-auto img-fluid"
+                  alt="User Photo"
+                  width="700"
+                  height="500"
+                  loading="lazy"
+                />
+              </div>
+              <div className="col-lg-6">
+                <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+                  {userData.username}'s Profile
+                </h1>
+                <p className="lead">
+                  {userData.first_name} {userData.last_name}
+                </p>
+                <p className="lead">Email: {userData.email}</p>
+                <button
+                  onClick={activateButton}
+                  disabled={activateDisabled}
+                  className="btn btn-primary btn-lg px-4 me-md-2"
+                >
+                  Activate
+                </button>
+                <button
+                  style={{ marginLeft: 10 }}
+                  onClick={deactivateButton}
+                  disabled={declineDisabled}
+                  className="btn btn-danger btn-lg px-4"
+                >
+                  Deactivate
+                </button>
+              </div>
             </div>
           </div>
         ) : (
